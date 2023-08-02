@@ -16,7 +16,7 @@ exports.login = class login {
      */
 
     async landingToLoginPage() {
-        await this.page.goto(loginData.url+"login.html")
+        await this.page.goto("http://127.0.0.1:8000/login.html")
     }
     async loginWithInvalidCredential() {
         await this.username.type(loginData.username)
