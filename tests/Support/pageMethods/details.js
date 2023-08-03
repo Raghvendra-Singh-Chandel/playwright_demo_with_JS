@@ -31,7 +31,7 @@ exports.details = class details {
         await this.phoneNumber.type(detailsData.phone)
         await expect(this.phoneNumber).toHaveValue(detailsData.phone)
 
-        await this.dob.type(detailsData.DOB,{delay:10})
+        await this.dob.fill(detailsData.DOB)
 
        await this.sex.click()
         await expect(this.sex).toBeChecked()
