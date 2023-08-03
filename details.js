@@ -62,10 +62,25 @@ document.addEventListener('DOMContentLoaded', function() {
   const formFields = form.querySelectorAll('input');
   formFields.forEach(field => {
     field.addEventListener('input', function() {
-      if (!field.validity.valid) {
-        field.classList.add('error');
+      if (field.type === 'date') {
+        // Check if the field has a value; if not, remove the "error" class.
+        if (field.value === '') {
+          field.classList.remove('error');
+        } else {
+          // If the field has a value, check for validity.
+          if (!field.validity.valid) {
+            field.classList.add('error');
+          } else {
+            field.classList.remove('error');
+          }
+        }
       } else {
-        field.classList.remove('error');
+        // For other fields (non-DOB fields), check for validity as before.
+        if (!field.validity.valid) {
+          field.classList.add('error');
+        } else {
+          field.classList.remove('error');
+        }
       }
       updateButtonState();
     });
