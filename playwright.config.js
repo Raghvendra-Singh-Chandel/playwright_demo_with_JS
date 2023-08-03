@@ -36,7 +36,10 @@ module.exports = defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: { ...devices['Desktop Chrome'],
+      browserName: "chromium",
+        viewport: { width: 1920, height: 1080 }
+    },
     },
 
     // {
@@ -46,17 +49,25 @@ module.exports = defineConfig({
 
     {
       name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
+      use: { ...devices['Desktop Safari'],
+      browserName: "webkit",
+      viewport: { width: 1920, height: 1080 } },
     },
 
     /* Test against mobile viewports. */
     {
       name: 'Mobile Chrome',
-      use: { ...devices['Pixel 5'] },
+      use: { ...devices['iPhone 13 Pro'],
+      browserName: "chromium",
+      viewport: { width: 800, height: 600 }
+    
+    },
     },
     {
       name: 'Mobile Safari',
-      use: { ...devices['iPhone 12'] },
+      use: { ...devices['iPhone 12'],
+      browserName: "chromium",
+      viewport: { width: 800, height: 600 } },
     },
 
     /* Test against branded browsers. */
